@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
 const path = require('path');
 
 module.exports = {
@@ -19,6 +20,20 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Host app',
       template: path.resolve(__dirname, './src/template.html')
+    }),
+
+    new ModuleFederationPlugin({
+      name: 'hostApp_oneVendorsBundle',
+      library: {
+        type: 'var',
+        name: 'hostApp_oneVendorsBundle'
+      },
+      remotes: {
+        remoteApp: 'remoteApp_oneVendorsBundle'
+      },
+      shared: [
+        'lodash'
+      ]
     })
   ]
 };

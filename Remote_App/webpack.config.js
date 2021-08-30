@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
 const path = require('path');
 
 module.exports = {
@@ -19,6 +20,21 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Remote app',
       template: path.resolve(__dirname, './src/template.html')
+    }),
+
+    new ModuleFederationPlugin({
+      name: 'remoteApp_oneVendorsBundle',
+      library: {
+        type: 'var',
+        name: 'remoteApp_oneVendorsBundle'
+      },
+      filename: 'remoteEntry.js',
+      exposes: {
+        './mySharedFunction': './src/sharedModules/mySharedFunction.js'
+      },
+      shared: [
+        'lodash'
+      ]
     })
   ]
 };

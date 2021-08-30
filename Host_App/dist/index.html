@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= htmlWebpackPlugin.options.title %> </title>
+    <title>Host app </title>
     <script src='http://localhost:3000/remoteEntry.js'></script>
-</head>
+<script defer src="bundle.js"></script></head>
 <body>
     HOST APP
 
-    <button id="btn-shared-func-loader" 
-        style="display: block; margin-top: 10px;"
-    >Load shared function</button>
+    <button id="btn-shared-func-loader">Load shared function</button>
 
 </body>
 </html>
