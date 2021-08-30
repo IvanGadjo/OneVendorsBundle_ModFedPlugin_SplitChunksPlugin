@@ -1,0 +1,1 @@
+import('./sharedModules/mySharedFunction')

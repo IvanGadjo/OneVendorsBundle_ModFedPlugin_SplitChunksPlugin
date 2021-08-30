@@ -6,15 +6,15 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-(self["webpackChunkhost_app"] = self["webpackChunkhost_app"] || []).push([["src_mainLogic_js"],{
+(self["webpackChunkremote_app"] = self["webpackChunkremote_app"] || []).push([["src_sharedModules_mySharedFunction_js"],{
 
-/***/ "./src/mainLogic.js":
-/*!**************************!*\
-  !*** ./src/mainLogic.js ***!
-  \**************************/
+/***/ "./src/sharedModules/mySharedFunction.js":
+/*!***********************************************!*\
+  !*** ./src/sharedModules/mySharedFunction.js ***!
+  \***********************************************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://host_app/./src/mainLogic.js?");
+eval("\n\n//# sourceURL=webpack://remote_app/./src/sharedModules/mySharedFunction.js?");
 
 /***/ })
 
