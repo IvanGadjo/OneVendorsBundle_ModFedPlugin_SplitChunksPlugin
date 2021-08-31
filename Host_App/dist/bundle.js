@@ -206,12 +206,20 @@ module.exports = remoteApp_oneVendorsBundle;
 /******/ 		var chunkMapping = {
 /******/ 			"webpack_container_remote_remoteApp_mySharedFunction": [
 /******/ 				"webpack/container/remote/remoteApp/mySharedFunction"
+/******/ 			],
+/******/ 			"webpack_container_remote_remoteApp_mySharedButton": [
+/******/ 				"webpack/container/remote/remoteApp/mySharedButton"
 /******/ 			]
 /******/ 		};
 /******/ 		var idToExternalAndNameMapping = {
 /******/ 			"webpack/container/remote/remoteApp/mySharedFunction": [
 /******/ 				"default",
 /******/ 				"./mySharedFunction",
+/******/ 				"webpack/container/reference/remoteApp"
+/******/ 			],
+/******/ 			"webpack/container/remote/remoteApp/mySharedButton": [
+/******/ 				"default",
+/******/ 				"./mySharedButton",
 /******/ 				"webpack/container/reference/remoteApp"
 /******/ 			]
 /******/ 		};
@@ -348,7 +356,7 @@ module.exports = remoteApp_oneVendorsBundle;
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if("webpack_container_remote_remoteApp_mySharedFunction" != chunkId) {
+/******/ 						if(/^(main|src_mainLogic_js)$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);

@@ -32,7 +32,7 @@ module.exports = {
         remoteApp: 'remoteApp_oneVendorsBundle'
       },
       shared: [
-        'lodash'
+        'lodash', 'd3'
       ]
     })
   ]

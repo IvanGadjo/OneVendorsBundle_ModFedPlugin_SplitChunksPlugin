@@ -16,6 +16,18 @@ module.exports = {
     port: 3000
   },
 
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/](lodash|d3|delaunator|internmap|robust-predicates)/,
+          name: 'Vendors_Lodash_D3',
+          chunks: 'all'
+        }
+      }
+    }
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Remote app',

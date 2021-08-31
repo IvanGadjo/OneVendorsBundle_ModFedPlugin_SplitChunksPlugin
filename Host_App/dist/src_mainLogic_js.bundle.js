@@ -14,7 +14,7 @@
   \**************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("let loadSharedFuncBtn = document.getElementById('btn-shared-func-loader');\r\n\r\nloadSharedFuncBtn.addEventListener('click', async () => {\r\n    let sharedFunction = await __webpack_require__.e(/*! import() */ \"webpack_container_remote_remoteApp_mySharedFunction\").then(__webpack_require__.t.bind(__webpack_require__, /*! remoteApp/mySharedFunction */ \"webpack/container/remote/remoteApp/mySharedFunction\", 23));\r\n    sharedFunction();\r\n})\n\n//# sourceURL=webpack://host_app/./src/mainLogic.js?");
+eval("let loadSharedModulesBtn = document.getElementById('btn-shared-modules-loader');\r\n\r\nloadSharedModulesBtn.addEventListener('click', async () => {\r\n    let sharedFunctionModule = await __webpack_require__.e(/*! import() */ \"webpack_container_remote_remoteApp_mySharedFunction\").then(__webpack_require__.t.bind(__webpack_require__, /*! remoteApp/mySharedFunction */ \"webpack/container/remote/remoteApp/mySharedFunction\", 23));\r\n    sharedFunctionModule.myFunction();\r\n\r\n    let sharedButtonModule = await __webpack_require__.e(/*! import() */ \"webpack_container_remote_remoteApp_mySharedButton\").then(__webpack_require__.t.bind(__webpack_require__, /*! remoteApp/mySharedButton */ \"webpack/container/remote/remoteApp/mySharedButton\", 23));\r\n    let sharedButton = document.createElement(sharedButtonModule.name);\r\n    let sharedButtonContainer = document.getElementById('shared-btn-container');\r\n    sharedButtonContainer.appendChild(sharedButton);\r\n})\n\n//# sourceURL=webpack://host_app/./src/mainLogic.js?");
 
 /***/ })
 
