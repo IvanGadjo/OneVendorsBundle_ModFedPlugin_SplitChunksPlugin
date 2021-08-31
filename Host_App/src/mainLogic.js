@@ -1,6 +1,11 @@
-let loadSharedFuncBtn = document.getElementById('btn-shared-func-loader');
+let loadSharedModulesBtn = document.getElementById('btn-shared-modules-loader');
 
-loadSharedFuncBtn.addEventListener('click', async () => {
+loadSharedModulesBtn.addEventListener('click', async () => {
     let sharedFunctionModule = await import('remoteApp/mySharedFunction');
-    sharedFunctionModule.myFunction()
+    sharedFunctionModule.myFunction();
+
+    let sharedButtonModule = await import('remoteApp/mySharedButton');
+    let sharedButton = document.createElement(sharedButtonModule.name);
+    let sharedButtonContainer = document.getElementById('shared-btn-container');
+    sharedButtonContainer.appendChild(sharedButton);
 })
