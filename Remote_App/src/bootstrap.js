@@ -1,1 +1,2 @@
-import('./sharedModules/mySharedFunction')
+import('./sharedModules/mySharedFunction');
+import('./sharedModules/mySharedButton');

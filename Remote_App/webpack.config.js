@@ -30,10 +30,11 @@ module.exports = {
       },
       filename: 'remoteEntry.js',
       exposes: {
-        './mySharedFunction': './src/sharedModules/mySharedFunction.js'
+        './mySharedFunction': './src/sharedModules/mySharedFunction.js',
+        './mySharedButton': './src/sharedModules/mySharedButton.js'
       },
       shared: [
-        'lodash'
+        'lodash', 'd3'
       ]
     })
   ]

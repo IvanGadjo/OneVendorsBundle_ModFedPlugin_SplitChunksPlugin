@@ -15,7 +15,7 @@
   \**************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("__webpack_require__.e(/*! import() */ \"src_sharedModules_mySharedFunction_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./sharedModules/mySharedFunction */ \"./src/sharedModules/mySharedFunction.js\"))\n\n//# sourceURL=webpack://remote_app/./src/bootstrap.js?");
+eval("__webpack_require__.e(/*! import() */ \"src_sharedModules_mySharedFunction_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./sharedModules/mySharedFunction */ \"./src/sharedModules/mySharedFunction.js\"));\r\n__webpack_require__.e(/*! import() */ \"src_sharedModules_mySharedButton_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./sharedModules/mySharedButton */ \"./src/sharedModules/mySharedButton.js\"));\n\n//# sourceURL=webpack://remote_app/./src/bootstrap.js?");
 
 /***/ })
 
@@ -223,6 +223,7 @@ eval("__webpack_require__.e(/*! import() */ \"src_sharedModules_mySharedFunction
 /******/ 			var promises = [];
 /******/ 			switch(name) {
 /******/ 				case "default": {
+/******/ 					register("d3", "7.0.1", () => (__webpack_require__.e("vendors-node_modules_d3_src_index_js").then(() => (() => (__webpack_require__(/*! ./node_modules/d3/src/index.js */ "./node_modules/d3/src/index.js"))))));
 /******/ 					register("lodash", "4.17.21", () => (__webpack_require__.e("vendors-node_modules_lodash_lodash_js").then(() => (() => (__webpack_require__(/*! ./node_modules/lodash/lodash.js */ "./node_modules/lodash/lodash.js"))))));
 /******/ 				}
 /******/ 				break;
@@ -375,12 +376,16 @@ eval("__webpack_require__.e(/*! import() */ \"src_sharedModules_mySharedFunction
 /******/ 		});
 /******/ 		var installedModules = {};
 /******/ 		var moduleToHandlerMapping = {
-/******/ 			"webpack/sharing/consume/default/lodash/lodash": () => (loadStrictVersionCheckFallback("default", "lodash", [4,4,17,21], () => (__webpack_require__.e("vendors-node_modules_lodash_lodash_js").then(() => (() => (__webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js")))))))
+/******/ 			"webpack/sharing/consume/default/lodash/lodash": () => (loadStrictVersionCheckFallback("default", "lodash", [4,4,17,21], () => (__webpack_require__.e("vendors-node_modules_lodash_lodash_js").then(() => (() => (__webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"))))))),
+/******/ 			"webpack/sharing/consume/default/d3/d3": () => (loadStrictVersionCheckFallback("default", "d3", [4,7,0,1], () => (__webpack_require__.e("vendors-node_modules_d3_src_index_js").then(() => (() => (__webpack_require__(/*! d3 */ "./node_modules/d3/src/index.js")))))))
 /******/ 		};
 /******/ 		// no consumes in initial chunks
 /******/ 		var chunkMapping = {
 /******/ 			"src_sharedModules_mySharedFunction_js": [
 /******/ 				"webpack/sharing/consume/default/lodash/lodash"
+/******/ 			],
+/******/ 			"src_sharedModules_mySharedButton_js": [
+/******/ 				"webpack/sharing/consume/default/d3/d3"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.consumes = (chunkId, promises) => {

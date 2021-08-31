@@ -17,7 +17,7 @@ var remoteApp_oneVendorsBundle;
   \***********************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("var moduleMap = {\n\t\"./mySharedFunction\": () => {\n\t\treturn __webpack_require__.e(\"src_sharedModules_mySharedFunction_js\").then(() => (() => ((__webpack_require__(/*! ./src/sharedModules/mySharedFunction.js */ \"./src/sharedModules/mySharedFunction.js\")))));\n\t}\n};\nvar get = (module, getScope) => {\n\t__webpack_require__.R = getScope;\n\tgetScope = (\n\t\t__webpack_require__.o(moduleMap, module)\n\t\t\t? moduleMap[module]()\n\t\t\t: Promise.resolve().then(() => {\n\t\t\t\tthrow new Error('Module \"' + module + '\" does not exist in container.');\n\t\t\t})\n\t);\n\t__webpack_require__.R = undefined;\n\treturn getScope;\n};\nvar init = (shareScope, initScope) => {\n\tif (!__webpack_require__.S) return;\n\tvar oldScope = __webpack_require__.S[\"default\"];\n\tvar name = \"default\"\n\tif(oldScope && oldScope !== shareScope) throw new Error(\"Container initialization failed as it has already been initialized with a different share scope\");\n\t__webpack_require__.S[name] = shareScope;\n\treturn __webpack_require__.I(name, initScope);\n};\n\n// This exports getters to disallow modifications\n__webpack_require__.d(exports, {\n\tget: () => (get),\n\tinit: () => (init)\n});\n\n//# sourceURL=webpack://remote_app/container_entry?");
+eval("var moduleMap = {\n\t\"./mySharedFunction\": () => {\n\t\treturn __webpack_require__.e(\"src_sharedModules_mySharedFunction_js\").then(() => (() => ((__webpack_require__(/*! ./src/sharedModules/mySharedFunction.js */ \"./src/sharedModules/mySharedFunction.js\")))));\n\t},\n\t\"./mySharedButton\": () => {\n\t\treturn __webpack_require__.e(\"src_sharedModules_mySharedButton_js\").then(() => (() => ((__webpack_require__(/*! ./src/sharedModules/mySharedButton.js */ \"./src/sharedModules/mySharedButton.js\")))));\n\t}\n};\nvar get = (module, getScope) => {\n\t__webpack_require__.R = getScope;\n\tgetScope = (\n\t\t__webpack_require__.o(moduleMap, module)\n\t\t\t? moduleMap[module]()\n\t\t\t: Promise.resolve().then(() => {\n\t\t\t\tthrow new Error('Module \"' + module + '\" does not exist in container.');\n\t\t\t})\n\t);\n\t__webpack_require__.R = undefined;\n\treturn getScope;\n};\nvar init = (shareScope, initScope) => {\n\tif (!__webpack_require__.S) return;\n\tvar oldScope = __webpack_require__.S[\"default\"];\n\tvar name = \"default\"\n\tif(oldScope && oldScope !== shareScope) throw new Error(\"Container initialization failed as it has already been initialized with a different share scope\");\n\t__webpack_require__.S[name] = shareScope;\n\treturn __webpack_require__.I(name, initScope);\n};\n\n// This exports getters to disallow modifications\n__webpack_require__.d(exports, {\n\tget: () => (get),\n\tinit: () => (init)\n});\n\n//# sourceURL=webpack://remote_app/container_entry?");
 
 /***/ })
 
@@ -225,6 +225,7 @@ eval("var moduleMap = {\n\t\"./mySharedFunction\": () => {\n\t\treturn __webpack
 /******/ 			var promises = [];
 /******/ 			switch(name) {
 /******/ 				case "default": {
+/******/ 					register("d3", "7.0.1", () => (__webpack_require__.e("vendors-node_modules_d3_src_index_js").then(() => (() => (__webpack_require__(/*! ./node_modules/d3/src/index.js */ "./node_modules/d3/src/index.js"))))));
 /******/ 					register("lodash", "4.17.21", () => (__webpack_require__.e("vendors-node_modules_lodash_lodash_js").then(() => (() => (__webpack_require__(/*! ./node_modules/lodash/lodash.js */ "./node_modules/lodash/lodash.js"))))));
 /******/ 				}
 /******/ 				break;
@@ -377,12 +378,16 @@ eval("var moduleMap = {\n\t\"./mySharedFunction\": () => {\n\t\treturn __webpack
 /******/ 		});
 /******/ 		var installedModules = {};
 /******/ 		var moduleToHandlerMapping = {
-/******/ 			"webpack/sharing/consume/default/lodash/lodash": () => (loadStrictVersionCheckFallback("default", "lodash", [4,4,17,21], () => (__webpack_require__.e("vendors-node_modules_lodash_lodash_js").then(() => (() => (__webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js")))))))
+/******/ 			"webpack/sharing/consume/default/lodash/lodash": () => (loadStrictVersionCheckFallback("default", "lodash", [4,4,17,21], () => (__webpack_require__.e("vendors-node_modules_lodash_lodash_js").then(() => (() => (__webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"))))))),
+/******/ 			"webpack/sharing/consume/default/d3/d3": () => (loadStrictVersionCheckFallback("default", "d3", [4,7,0,1], () => (__webpack_require__.e("vendors-node_modules_d3_src_index_js").then(() => (() => (__webpack_require__(/*! d3 */ "./node_modules/d3/src/index.js")))))))
 /******/ 		};
 /******/ 		// no consumes in initial chunks
 /******/ 		var chunkMapping = {
 /******/ 			"src_sharedModules_mySharedFunction_js": [
 /******/ 				"webpack/sharing/consume/default/lodash/lodash"
+/******/ 			],
+/******/ 			"src_sharedModules_mySharedButton_js": [
+/******/ 				"webpack/sharing/consume/default/d3/d3"
 /******/ 			]
 /******/ 		};
 /******/ 		__webpack_require__.f.consumes = (chunkId, promises) => {
